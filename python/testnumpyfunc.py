@@ -21,8 +21,10 @@ while ( v < XTrain.shape[1]):
 		n += 1
 	v += 1
 	n = 0
-
-D = ((D+beta_1-1)/(yTrain.shape[0]+beta_1+beta_0-2))
+y1 = np.count_nonzero(yTrain)
+y0 = yTrain.shape[0] - y1
+D[0,:] = ((D[0,:]+beta_0-1)/(y0+beta_1+beta_0-2))
+D[1,:] = ((D[1,:]+beta_0-1)/(y1+beta_1+beta_0-2))
 print "XTrain:" 
 print XTrain
 print "XTest:"
